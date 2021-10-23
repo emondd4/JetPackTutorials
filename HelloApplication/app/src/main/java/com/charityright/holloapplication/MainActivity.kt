@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,8 +33,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-//            Greeting(name = "Emon Hossain")
-            CardView()
+            Greeting(name = "Emon Hossain")
+            //CardView()
         }
     }
 }
@@ -76,8 +77,9 @@ fun Greeting(name: String) {
     Text(
         text = "Hello $name!",
         fontSize = 32.sp,
+        textAlign = TextAlign.Center,
         fontFamily = FontFamily.Monospace,
-        modifier = Modifier.clickable {
+        modifier = Modifier.fillMaxWidth().fillMaxHeight().clickable {
             Toast.makeText(context, "Clicked Item", Toast.LENGTH_SHORT).show()
         }
     )
@@ -89,7 +91,7 @@ fun DefaultPreview() {
     HolloApplicationTheme {
 //        Surface(modifier = Modifier.fillMaxSize()) {
 //        }
-//        Greeting("Android")
-        CardView()
+        Greeting("Emon Hossain")
+//        CardView()
     }
 }
