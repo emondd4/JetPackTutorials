@@ -62,7 +62,7 @@ fun LoginPage() {
                 )
             }
 
-            Spacer(modifier = Modifier.padding(20.dp))
+            Spacer(modifier = Modifier.padding(40.dp))
 
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
@@ -123,24 +123,28 @@ fun LoginPage() {
 
                         Button(
                             onClick = {
-                                if (emailVal.value.isEmpty()) {
-                                    Toast.makeText(
-                                        context,
-                                        "Please enter email address!",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                } else if (passwordVal.value.isEmpty()) {
-                                    Toast.makeText(
-                                        context,
-                                        "Please enter the password",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                } else {
-                                    Toast.makeText(
-                                        context,
-                                        "Logged Successfully!",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                when {
+                                    emailVal.value.isEmpty() -> {
+                                        Toast.makeText(
+                                            context,
+                                            "Please enter email address!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                    passwordVal.value.isEmpty() -> {
+                                        Toast.makeText(
+                                            context,
+                                            "Please enter the password",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                    else -> {
+                                        Toast.makeText(
+                                            context,
+                                            "Logged Successfully!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
                                 }
                             },
                             modifier = Modifier
@@ -154,10 +158,10 @@ fun LoginPage() {
 
                         Text(
                             text = "Create an Account?",
-//                            modifier = Modifier
-//                                .clickable {
-//                                    navController.navigate("register_page")
-//                                }
+                            modifier = Modifier
+                                .clickable {
+                                    NavController(context).navigate("register_page")
+                                }
                         )
 
                         Spacer(modifier = Modifier.padding(20.dp))
